@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descubra o Cabo 🐚</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: linear-gradient(to bottom right, #00C2CB, #06D6A0, #FFD166);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-y: auto; /* permite scroll vertical no celular */
+    }
+
+    /* ===== MENU ===== */
+    nav {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 12px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #0d3b66;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    nav button::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background: #FF6F3C;
+      transition: 0.3s;
+      border-radius: 3px;
+    }
+
+    nav button:hover::after {
+      width: 60%;
+    }
+
+    /* ===== SEÇÕES ===== */
+    .section {
+      display: none;
+      padding: 90px 20px 60px; /* considera nav e footer */
+      min-height: 100vh;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #FF6F3C;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    /* ===== CARDS ===== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+
+    .card {
+      background: #FFF8E1;
+      border-radius: 20px;
+      padding: 15px;
+      text-align: center;
+      transition: 0.4s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      border-radius: 15px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: #0077b6;
+      margin: 5px 0;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    /* ===== BOTÕES ===== */
+    a.btn {
+      background-color: #FF6F3C;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      margin: 20px auto;
+      transition: 0.3s;
+    }
+
+    a.btn:hover {
+      background-color: #ff924c;
+      transform: scale(1.05);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 10px;
+      color: #0d3b66;
+      font-size: 0.8rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ===== SCROLL ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-thumb { background: #00C2CB; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <button onclick="showSection('pontos')">🏝️ Pontos</button>
+    <button onclick="showSection('pousadas')">🏨 Pousadas</button>
+    <button onclick="showSection('eventos')">🎉 Eventos</button>
+    <button onclick="showSection('locais')">👩‍🌾 Locais</button>
+    <button onclick="showSection('contato')">📞 Contato</button>
+  </nav>
+
+  <!-- 🌊 PONTOS -->
+  <section id="pontos" class="section active">
+    <h1>Descubra o Cabo</h1>
+    <p>Explore as praias mais incríveis e os encantos naturais do litoral.</p>
+    <div class="cards">
+      <div class="card">
+        <img src="IMG_6294.jpg" alt="Calhetas">
+        <h3>Praia de Calhetas</h3>
+        <p>A Praia de Calhetas é conhecida por sua beleza em formato de coração, pela tirolesa com vista panorâmica e pelos bares à beira-mar que animam o turismo local.</p>
+      </div>
+      <div class="card">
+        <img src="gaibu.jpg" alt="Gaibu">
+        <h3>Praia de Gaibu</h3>
+        <p>É conhecida por suas águas claras e pelas impressionantes formações rochosas que emolduram a paisagem, tornando-a um dos destinos turísticos mais encantadores do Cabo de Santo Agostinho.</p>
+      </div>
+      <div class="card">
+        <img src="casa do faloreiro.jpeg" alt="Centro Histórico">
+        <h3>Centro Histórico</h3>
+        <p>A Casa do Faroleiro é conhecida por suas ruínas históricas e vista deslumbrante do litoral, atraindo turistas interessados em cultura, história e paisagens do Cabo de Santo Agostinho.</p>
+      </div>
+      <div class="card">
+        <img src="praia de suape.jpg" alt="Praia de Suape">
+        <h3>Praia de Suape</h3>
+        <p>Conhecida pelo encontro do rio com o mar, águas calmas e paisagens naturais preservadas.</p>
+      </div>
+      <div class="card">
+        <img src="praia de enseadas dos corais.jpeg" alt="Enseadas dos corais">
+        <h3>Enseadas dos Corais</h3>
+        <p>É conhecida por suas águas claras, recifes que formam piscinas naturais e clima tranquilo ideal para famílias.</p>
+      </div>
+      <div class="card">
+        <img src="praia de itapuama.jpg" alt="Praia de Itapuama">
+        <h3>Praia de Itapuama</h3>
+        <p>É conhecida por suas fortes ondas e mar aberto, sendo um dos principais pontos turísticos do Cabo de Santo Agostinho para surfistas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🏨 POUSADAS -->
+  <section id="pousadas" class="section">
+    <h1>Hospedagem & Gastronomia</h1>
+    <p>Escolha o lugar perfeito para descansar e se deliciar.</p>
+    <div class="cards">
+      <div class="card">
+        <img src="hotel canarius.jpg" alt="Pousada Mar Azul">
+        <h3>Hotel Canarius D'Gaibu</h3>
+        <p>Hospedagem charmosa com vista para o mar. ⭐⭐⭐⭐☆</p>
+        <a href="https://www.google.com/maps?q=Hotel+Canarius+D'Gaibu" target="_blank">📍 Ver no Google Maps</a>
+    </div>
+
+      <div class="card">
+        <img src="restaurante guaiamum.jpg" alt="Restaurante Do Guaiamum">
+        <h3>Restaurante Do Guaiamum</h3>
+        <p>Sabores regionais e pôr do sol inesquecível. ⭐⭐⭐⭐⭐</p>
+        <a href="https://maps.app.goo.gl/FT4SUKPjnU9yfzNt8" target="_blank">📍 Ver no Google Maps</a>
+      </div>
+      <div class="card">
+        <img src="caravelas de pinzon.jpg" alt="Pousada Caravelas de Pinzón">
+        <h3>Pousada Caravelas de Pinzón</h3>
+        <p>Tranquilidade, aconchego e natureza ao redor com vista para o mar. ⭐⭐⭐⭐☆</p>
+        <a href="https://maps.app.goo.gl/HU8F1XSpoQAoYSPY8" target="_blank">📍 Ver no Google Maps</a>
+      </div>
+      <div class="card">
+        <img src="pousada nomoa.jpg" alt="Pousada Nomoa">
+        <h3>Pousada Nomoa</h3>
+        <p>Sofisticação, calmaria e clima familiar em um só lugar com vista para o mar e acesso direto à areia! ⭐⭐⭐⭐⭐</p>
+        <a href="https://maps.app.goo.gl/CZ47BETmPEu7gw7r7" target="_blank">📍 Ver no Google Maps</a>
+      </div>
+      <div class="card">
+        <img src="bar do rio eloi.jpg" alt="Bar do Rio Eloi">
+        <h3>Bar do Rio Eloi</h3>
+        <p>Aqui você encontra bar e tamarã e muita cultura regional e um só lugar! ⭐⭐⭐⭐☆</p>
+        <a href="https://maps.app.goo.gl/ur4gt2Hx6S6Dg1LU7" target="_blank">📍 Ver no Google Maps</a>
+      </div>
+    <div class="card">
+        <img src="bar do doido.jpg" alt="Bar do Doido">
+        <h3>Bar do Doido</h3>
+        <p>O Bar do Doido, onde a cultura cabense se encontra com a resenha! ⭐⭐⭐⭐☆</p>
+        <a href="https://maps.app.goo.gl/iTzJmPnVdPvKLkbR6" target="_blank">📍 Ver no Google Maps</a>
+  </section>
+
+  <!-- 🎉 EVENTOS -->
+  <section id="eventos" class="section">
+  <h1>Eventos e Passeios</h1>
+  <p>Momentos únicos para curtir o melhor do Cabo.</p>
+
+  <div class="cards">
+    <!-- Trilha Ecológica -->
+    <div class="card">
+      <img src="trilha adventurex.webp" alt="Trilha Ecológica">
+      <h3>Trilha Aventurex</h3>
+      <p>Conecte-se com a natureza e descubra paisagens únicas no nosso litoral cabense.</p>
+      <p><strong>📅 Todo primeiro sábado do mês, às 5h, concentração: em frente ao arco-mix de Gaibu</strong></p>
+      <a href="https://maps.app.goo.gl/XwPqBhMDzReREGoP6"
+         target="_blank" class="btn">🗺️ Ver Rota</a>
+    </div>
+
+    <!-- Festival do Verão -->
+    <div class="card">
+      <img src="sol e lua.JPG" alt="Festival da Privamera">
+      <h3>Festival ate que a lua vire sol</h3>
+      <p>Música, arte e sabores locais sob o sol do litoral até ao anoicer com muita musica e artistas locais.</p>
+      <p><strong>📅 20 a 25 de Novembro de 2025</strong></p>
+      <a href="https://maps.app.goo.gl/gKMdgaj9sdyHTSYj8"
+         target="_blank" class="btn">🗺️ Ver Rota</a>
+    </div>
+
+    <!-- Feira de Artesanato -->
+    <div class="card">
+      <img src=" feirinha vale da lua.jpg" alt="Feira do Vale da Lua">
+      <h3>Feira do Vale da Lua</h3>
+      <p>Aqui você encontra cultura local e produtos dos nossos artsões cabenses</p>
+      <p><strong>📅 Todos os domingos, das 9h às 17h</strong></p>
+      <a href="https://maps.app.goo.gl/zMtvEXUsewWTQQWR6"
+         target="_blank" class="btn">🗺️ Ver Rota</a>
+    </div>
+
+    <!-- Acampamento de Wandinha -->
+    <div class="card">
+      <img src="Acampamento da Wandinha.jpg" alt="Acampamento de Wandinha">
+      <h3>Acampamento de Wandinha</h3>
+      <p>Quer um lugar para estar em contato direto com a natureza? O acampamento da Wandinha é o lugar ideal para você</p>
+      <p><strong>📅 Todos os domingos, Entrada: 14h. Saída: 12h</strong></p>
+      <a href="https://maps.app.goo.gl/RKu5SRJLz2dRkvAb8"
+         target="_blank" class="btn">🗺️ Ver Rota</a>
+  </div>
+</section>
+
+
+  <!-- 👩‍🌾 LOCAIS -->
+<section id="locais" class="section">
+  <h1>Empreendedores Locais</h1>
+  <p>Gente criativa que movimenta o turismo sustentável.</p>
+
+  <div class="cards">
+    <!-- Conecta Surf -->
+    <div class="card">
+      <img src="conecta surf.png" alt="Conecta Surf">
+      <h3>Conecta Surf</h3>
+      <p>Está passando pela região e deseja praticar algum esporte? Aqui é o lugar ideal! Aulas de surf para todas as idades.</p>
+      <a href="https://www.instagram.com/conectasurf/"
+         target="_blank" class="btn insta">📸 Visitar Instagram</a>
+    </div>
+
+    <!-- Bordo Amor -->
+    <div class="card">
+      <img src="bordo amor.png" alt="Bordo amor">
+      <h3>Bordo Amor</h3>
+      <p>Está procurando uma lembraça feito à mão? Aqui você encomenda a sua do jeitinho que desejar! .</p>
+      <a href="https://www.instagram.com/bordkamr/"
+         target="_blank" class="btn insta">📸 Visitar Instagram</a>
+    </div>
+
+    <!-- Savio buggy tuor -->
+    <div class="card">
+      <img src="buggy tuor.png" alt="Savio Buggy Tuor">
+      <h3>Savio Buggy Tuor</h3>
+      <p>Passeios seguros de buggy aos lugares históricos do Cabo, e registros inesquecíveis.</p>
+      <a href="https://www.instagram.com/savio_buggy_tour/"
+         target="_blank" class="btn insta">📸 Visitar Instagram</a>
+    </div>
+
+    <!-- Passeio de lancha -->
+    <div class="card">
+      <img src="lancha.png" alt="Lancha do seu Manoel">
+      <h3>Lancha do seu Manoel</h3>
+      <p>Está procurando passeios de lancha pela região? Aqui você encontra passeios seguros e paisagens incríveis.</p>
+      <a href="https://www.instagram.com/passeio_de_lancha_suapelazer1/"
+         target="_blank" class="btn insta">📸 Visitar Instagram</a>
+  </div>
+</section>
+
+
+  <!-- 📞 CONTATO -->
+  <section id="contato" class="section">
+    <h1>Fale Conosco</h1>
+    <p>📧 descubraocabo@gmail.com<br> 📱 (81) 98560-7671</p>
+    <a href="https://www.instagram.com/descubraocabo?igsh=MTFzODd2b25zcnNzZQ==" target="_blank" class="btn">🌺 Siga no Instagram</a>
+  </section>
+
+  <footer>© 2025 Descubra o Cabo • Desenvolvido por Girsely Máximo</footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0,0);
+    }
+  </script>
+</body>
+</html>
